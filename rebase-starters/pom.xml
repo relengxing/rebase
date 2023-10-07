@@ -28,12 +28,15 @@
         <module>rebase-starter-prometheus</module>
         <module>rebase-starter-theadpool</module>
         <module>rebase-starter-registry</module>
+        <module>rebase-starter-gray</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <transmittable.threadlocal.version>2.14.2</transmittable.threadlocal.version>
+
     </properties>
 
     <dependencyManagement>
@@ -53,6 +56,22 @@
                 <artifactId>rebase-utils</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.relengxing.base</groupId>
+                <artifactId>rebase-starter-gray</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.relengxing.base</groupId>
+                <artifactId>rebase-starter-dubbo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable.threadlocal.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

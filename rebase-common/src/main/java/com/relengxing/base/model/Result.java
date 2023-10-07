@@ -1,7 +1,7 @@
 package com.relengxing.base.model;
 
 /**
- * @author chaoli
+ * @author relengxing
  * @date 2023-09-24 12:12
  * @Description
  **/
