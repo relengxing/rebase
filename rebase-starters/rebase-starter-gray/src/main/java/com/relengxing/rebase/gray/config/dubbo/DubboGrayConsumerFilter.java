@@ -2,7 +2,7 @@ package com.relengxing.rebase.gray.config.dubbo;
 
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
-import com.relengxing.rebase.gray.constant.GrayConstant;
+import com.relengxing.base.constant.GrayConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import com.relengxing.rebase.gray.context.TraceContext;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class DubboGrayConsumerFilter implements Filter {
         if (rpcContext.isConsumerSide()) {//InjvmProtocol
             try {
                 BuildProperties buildProperties = SpringUtil.getBean(BuildProperties.class);
-                rpcContext.setAttachment(BaseConstant.DUBBO_CONSUMER_SERVICE_KEY, buildProperties.getName());
+                rpcContext.setAttachment(GrayConstant.DUBBO_CONSUMER_SERVICE_KEY, buildProperties.getName());
             } catch (Exception e) {
                 log.error("DubboGrayConsumerFilter ",e);
             }
@@ -44,8 +44,8 @@ public class DubboGrayConsumerFilter implements Filter {
                     log.info("TraceContext Injvm call {}", JSONUtil.toJsonStr(invoker.getUrl().getParameters()));
                 } else {
                     String ipPort = invoker.getUrl().getHost() + ":" + invoker.getUrl().getPort();
-                    String service = invoker.getUrl().getParameter(BaseConstant.DUBBO_SERVICE_KEY);
-                    String version = invoker.getUrl().getParameter(BaseConstant.DUBBO_VERSION_KEY);
+                    String service = invoker.getUrl().getParameter(GrayConstant.DUBBO_SERVICE_KEY);
+                    String version = invoker.getUrl().getParameter(GrayConstant.DUBBO_VERSION_KEY);
                     log.info("TraceContext dubbo trace: {} 准备调用下游服务 service:{} version: {} ip:{} 灰度标识 {}", traceFlag, service, version, ipPort, grayFlag);
                     if (service == null) {
                         log.info("TraceContext 下游服务没有版本标识: {}", JSONUtil.toJsonStr(invoker.getUrl().getParameters()));
