@@ -1,6 +1,7 @@
 package com.relengxing.rebase.gray.properties;
 
 
+import cn.hutool.extra.spring.SpringUtil;
 import com.relengxing.rebase.gray.context.GrayContext;
 import lombok.Data;
 
@@ -45,5 +46,10 @@ public class GrayProperties {
         return version;
     }
 
+
+    public Boolean inGrayList() {
+        String name = SpringUtil.getProperty("spring.application.name").trim();
+        return this.getList().containsKey(name);
+    }
 
 }

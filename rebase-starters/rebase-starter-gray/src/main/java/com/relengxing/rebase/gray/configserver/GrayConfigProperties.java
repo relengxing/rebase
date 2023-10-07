@@ -22,7 +22,7 @@ public class GrayConfigProperties {
     public static class Nacos {
         private String group = "DEFAULT_GROUP";
 
-        private String dataId = "rebase-gray";
+        private String dataId = "base-gray";
 
         private String serverAddress = "127.0.0.1:8848";
 

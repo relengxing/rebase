@@ -20,6 +20,10 @@
     <dependencies>
         <dependency>
             <groupId>com.relengxing.base</groupId>
+            <artifactId>rebase-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.relengxing.base</groupId>
             <artifactId>rebase-core</artifactId>
         </dependency>
         <dependency>
@@ -32,5 +36,6 @@
             <artifactId>rebase-starter-gray</artifactId>
             <optional>true</optional>
         </dependency>
+
     </dependencies>
 </project>
