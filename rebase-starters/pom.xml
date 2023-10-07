@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rebase</artifactId>
+        <groupId>com.relengxing.base</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>rebase-starters</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>rebase-starter-redis</module>
+        <module>rebase-starter-mysql</module>
+        <module>rebase-starter-kafka</module>
+        <module>rebase-starter-rocketmq</module>
+        <module>rebase-starter-graceful</module>
+        <module>rebase-starter-dubbo</module>
+        <module>rebase-starter-feign</module>
+        <module>rebase-starter-gateway</module>
+        <module>rebase-starter-nacos</module>
+        <module>rebase-starter-sentinel</module>
+        <module>rebase-starter-mybatis-plus</module>
+        <module>rebase-starter-web</module>
+        <module>rebase-starter-es</module>
+        <module>rebase-starter-prometheus</module>
+        <module>rebase-starter-theadpool</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>
