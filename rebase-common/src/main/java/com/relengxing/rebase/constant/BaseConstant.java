@@ -5,7 +5,7 @@ package com.relengxing.rebase.constant;
  * @date 2023-10-07 17:05
  * @Description
  **/
-public class GrayConstant {
+public class BaseConstant {
 
     /**
      * Nacos 注册发现版本信息 meta data Key

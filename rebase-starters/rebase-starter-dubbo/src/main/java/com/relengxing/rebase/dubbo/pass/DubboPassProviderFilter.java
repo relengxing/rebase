@@ -13,6 +13,10 @@ import java.util.Map;
 
 import static org.apache.dubbo.rpc.Constants.LOCAL_PROTOCOL;
 
+
+/**
+ * 透传header
+ */
 @Activate(group = {CommonConstants.PROVIDER})
 @Slf4j
 public class DubboPassProviderFilter implements Filter {

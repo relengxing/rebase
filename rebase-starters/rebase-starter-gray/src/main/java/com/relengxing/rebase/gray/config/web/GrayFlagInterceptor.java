@@ -1,7 +1,7 @@
 package com.relengxing.rebase.gray.config.web;
 
 
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import com.relengxing.rebase.gray.context.TraceContext;
 import lombok.extern.slf4j.Slf4j;
@@ -27,11 +27,11 @@ public class GrayFlagInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 判断请求是否来自灰度
-        String grayFlag = request.getHeader(GrayConstant.GRAY_HEADER);
+        String grayFlag = request.getHeader(BaseConstant.GRAY_HEADER);
         if (grayFlag != null) {
             GrayContext.set(grayFlag);
         }
-        String traceFlag = request.getHeader(GrayConstant.TRACE_HEADER);
+        String traceFlag = request.getHeader(BaseConstant.TRACE_HEADER);
         if (traceFlag != null) {
             TraceContext.set(traceFlag);
             log.info("TraceContext web trace: {}", traceFlag);

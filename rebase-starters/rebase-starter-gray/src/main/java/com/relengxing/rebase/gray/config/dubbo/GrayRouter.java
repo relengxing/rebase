@@ -1,7 +1,7 @@
 package com.relengxing.rebase.gray.config.dubbo;
 
 import cn.hutool.extra.spring.SpringUtil;
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import com.relengxing.rebase.gray.configserver.GrayConfig;
 import com.relengxing.rebase.gray.properties.GrayProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -59,13 +59,13 @@ public class GrayRouter extends AbstractRouter {
         // 如果开启了灰度
         if (Boolean.TRUE.equals(grayProperties.getStatus())) {
             // 下游服务名
-            String serviceName = invokers.stream().findFirst().map(invoker -> invoker.getUrl().getParameter(GrayConstant.DUBBO_SERVICE_KEY)).orElse("").trim();
+            String serviceName = invokers.stream().findFirst().map(invoker -> invoker.getUrl().getParameter(BaseConstant.DUBBO_SERVICE_KEY)).orElse("").trim();
             // 准备路由的版本号
             // 灰度名单包含下游服务
             if (grayProperties.getList().containsKey(serviceName)) {
                 // 过滤出符合灰度版本的invokers
                 String version = grayProperties.getVersion(serviceName);
-                invokers = invokers.stream().filter(invoker -> invoker.getUrl().getParameter(GrayConstant.DUBBO_VERSION_KEY).equals(version)).collect(Collectors.toList());
+                invokers = invokers.stream().filter(invoker -> invoker.getUrl().getParameter(BaseConstant.DUBBO_VERSION_KEY).equals(version)).collect(Collectors.toList());
             }
             result = invokers;
         }

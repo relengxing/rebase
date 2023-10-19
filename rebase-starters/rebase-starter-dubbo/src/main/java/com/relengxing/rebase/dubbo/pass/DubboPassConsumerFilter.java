@@ -13,6 +13,10 @@ import org.springframework.boot.info.BuildProperties;
 
 import java.util.Map;
 
+
+/**
+ * 透传header
+ */
 @Activate(group = {CommonConstants.CONSUMER})
 @Slf4j
 public class DubboPassConsumerFilter implements Filter {

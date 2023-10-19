@@ -1,5 +1,6 @@
 package com.relengxing.rebase.dubbo;
 import cn.hutool.extra.spring.SpringUtil;
+import com.relengxing.rebase.constant.BaseConstant;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.registry.NotifyListener;
@@ -43,8 +44,8 @@ public class ProviderRegistryWrapper implements RegistryFactory {
                     Properties properties = PropertiesLoaderUtils.loadProperties(location);
                     String version = properties.getProperty("build.version").trim();
                     String applicationName = SpringUtil.getProperty("spring.application.name").trim();
-                    url = url.addParameter(GrayConstant.DUBBO_VERSION_KEY, version);
-                    url = url.addParameter(GrayConstant.DUBBO_SERVICE_KEY, applicationName);
+                    url = url.addParameter(BaseConstant.DUBBO_VERSION_KEY, version);
+                    url = url.addParameter(BaseConstant.DUBBO_SERVICE_KEY, applicationName);
                 } catch (IOException e) {
                     throw new RuntimeException("无法读取 build-info.properties");
                 }

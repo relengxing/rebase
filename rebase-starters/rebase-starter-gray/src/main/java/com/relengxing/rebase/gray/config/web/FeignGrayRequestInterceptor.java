@@ -1,6 +1,6 @@
 package com.relengxing.rebase.gray.config.web;
 
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import com.relengxing.rebase.gray.context.TraceContext;
 import feign.RequestInterceptor;
@@ -12,10 +12,10 @@ public class FeignGrayRequestInterceptor implements RequestInterceptor {
         String grayFlag = GrayContext.get();
         String traceFlag = TraceContext.get();
         if (grayFlag != null) {
-            requestTemplate.header(GrayConstant.GRAY_HEADER, grayFlag);
+            requestTemplate.header(BaseConstant.GRAY_HEADER, grayFlag);
         }
         if (traceFlag != null) {
-            requestTemplate.header(GrayConstant.TRACE_HEADER, traceFlag);
+            requestTemplate.header(BaseConstant.TRACE_HEADER, traceFlag);
         }
     }
 }

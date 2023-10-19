@@ -1,7 +1,7 @@
 package com.relengxing.rebase.kafka.config;
 
 import cn.hutool.extra.spring.SpringUtil;
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import com.relengxing.rebase.gray.configserver.GrayConfig;
 import com.relengxing.rebase.kafka.constant.KafkaConstant;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +36,7 @@ public class GrayRecordFilterStrategy implements RecordFilterStrategy<Object, Ob
         // 开启蓝绿，且当前服务在灰度名单
         if (grayConfig.getGrayConfig().getStatus() && grayConfig.inGrayList()) {
             Headers headers = consumerRecord.headers();
-            Header header = headers.lastHeader(GrayConstant.GRAY_HEADER);
+            Header header = headers.lastHeader(BaseConstant.GRAY_HEADER);
             String messageColor = "";
             if (header != null) {
                 messageColor = new String(header.value(), StandardCharsets.UTF_8);

@@ -1,7 +1,7 @@
 package com.relengxing.rebase.gray.config.dubbo;
 
 import cn.hutool.json.JSONUtil;
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import com.relengxing.rebase.gray.context.TraceContext;
 import lombok.extern.slf4j.Slf4j;
@@ -26,8 +26,8 @@ public class DubboGrayProviderFilter implements Filter {
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         Map<String, String> attachments = invocation.getAttachments();
-        String grayFlag = attachments.get(GrayConstant.GRAY_HEADER);
-        String traceFlag = attachments.get(GrayConstant.TRACE_HEADER);
+        String grayFlag = attachments.get(BaseConstant.GRAY_HEADER);
+        String traceFlag = attachments.get(BaseConstant.TRACE_HEADER);
         Result invoke;
         try {
             if (grayFlag != null) {
@@ -35,7 +35,7 @@ public class DubboGrayProviderFilter implements Filter {
             }
             if (traceFlag != null) {
                 TraceContext.set(traceFlag);
-                String consumer = attachments.get(GrayConstant.DUBBO_CONSUMER_SERVICE_KEY);
+                String consumer = attachments.get(BaseConstant.DUBBO_CONSUMER_SERVICE_KEY);
                 log.info("TraceContext dubbo trace: {}, 上游: {}, 灰度标识: {}", traceFlag, consumer, grayFlag);
             }
             invoke = invoker.invoke(invocation);

@@ -9,7 +9,7 @@ package com.relengxing.rebase.registry.nacos;
 import com.alibaba.cloud.nacos.ConditionalOnNacosDiscoveryEnabled;
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.discovery.NacosDiscoveryAutoConfiguration;
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -53,7 +53,7 @@ public class NacosVersionDataConfiguration {
         metadata.put("startup.time", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
                 .format(new Date()));
         // 版本号
-        metadata.put(GrayConstant.NACOS_VERSION_KEY, buildProperties.getVersion().trim());
+        metadata.put(BaseConstant.NACOS_VERSION_KEY, buildProperties.getVersion().trim());
         // 本地环境不注册
         if (Boolean.TRUE.equals(disableRegister) && isRegisterDisabled()) {
             nacosDiscoveryProperties.setRegisterEnabled(false);

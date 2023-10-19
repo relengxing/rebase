@@ -16,7 +16,7 @@
 
 package com.relengxing.rebase.gray.config.web;
 
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import com.relengxing.rebase.gray.context.TraceContext;
 import lombok.extern.slf4j.Slf4j;
@@ -60,7 +60,7 @@ public class ReBlockingLoadBalancerClient extends BlockingLoadBalancerClient {
         String traceFlag = TraceContext.get();
         if (traceFlag != null) {
             String ipPort = serviceInstance.getHost() + ":" + serviceInstance.getPort();
-            String version = serviceInstance.getMetadata().get(GrayConstant.NACOS_VERSION_KEY);
+            String version = serviceInstance.getMetadata().get(BaseConstant.NACOS_VERSION_KEY);
             log.info("TraceContext web trace: {} 准备调用下游服务 service:{} version: {} ip:{} 灰度标识 {}", traceFlag, serviceId, version, ipPort, GrayContext.get());
         }
         return execute(serviceId, serviceInstance, request);

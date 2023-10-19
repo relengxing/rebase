@@ -1,7 +1,7 @@
 package com.relengxing.rebase.gray.config.web;
 
 import com.alibaba.cloud.nacos.discovery.NacosDiscoveryClient;
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import com.relengxing.rebase.gray.configserver.GrayConfig;
 import com.relengxing.rebase.gray.properties.GrayProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -108,7 +108,7 @@ public class GrayLoadBalancer implements ReactorServiceInstanceLoadBalancer {
         // 命中灰度规则，那么实例只能选择对应灰度的服务
         if (!instances.isEmpty()) {
             instances = instances.stream()
-                    .filter(instance -> instance.getMetadata().getOrDefault(GrayConstant.NACOS_VERSION_KEY, "0.0.0").equals(version))
+                    .filter(instance -> instance.getMetadata().getOrDefault(BaseConstant.NACOS_VERSION_KEY, "0.0.0").equals(version))
                     .collect(Collectors.toList());
         }
         if (instances.isEmpty()) {

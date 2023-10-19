@@ -1,6 +1,6 @@
 package com.relengxing.rebase.kafka.interceptor;
 
-import com.relengxing.rebase.constant.GrayConstant;
+import com.relengxing.rebase.constant.BaseConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerInterceptor;
@@ -24,7 +24,7 @@ public class KafkaConsumerInterceptor implements ConsumerInterceptor<String, Str
         if (records.iterator().hasNext()) {
             ConsumerRecord<String, String> consumerRecord = records.iterator().next();
             Headers headers = consumerRecord.headers();
-            Header header = headers.lastHeader(GrayConstant.GRAY_HEADER);
+            Header header = headers.lastHeader(BaseConstant.GRAY_HEADER);
             if (header != null) {
                 String messageColor = new String(header.value(), StandardCharsets.UTF_8);
                 GrayContext.set(messageColor);
