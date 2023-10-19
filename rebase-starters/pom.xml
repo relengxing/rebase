@@ -29,6 +29,7 @@
         <module>rebase-starter-theadpool</module>
         <module>rebase-starter-registry</module>
         <module>rebase-starter-gray</module>
+        <module>rebase-starter-passthrough</module>
     </modules>
 
     <properties>
@@ -39,40 +40,5 @@
 
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.relengxing.base</groupId>
-                <artifactId>rebase-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.relengxing.base</groupId>
-                <artifactId>rebase-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.relengxing.base</groupId>
-                <artifactId>rebase-utils</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.relengxing.base</groupId>
-                <artifactId>rebase-starter-gray</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.relengxing.base</groupId>
-                <artifactId>rebase-starter-dubbo</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>transmittable-thread-local</artifactId>
-                <version>${transmittable.threadlocal.version}</version>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
 
 </project>

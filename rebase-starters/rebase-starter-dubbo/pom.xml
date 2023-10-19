@@ -19,8 +19,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.relengxing.base</groupId>
-            <artifactId>rebase-common</artifactId>
+            <artifactId>rebase-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.relengxing.base</groupId>
+            <artifactId>rebase-starter-passthrough</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>
