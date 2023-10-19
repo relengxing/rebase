@@ -1,20 +1,25 @@
 package com.relengxing.rebase.pass;
 
 
-import com.relengxing.rebase.context.PassThroughHolder;
 
 public class PassThroughLoaded {
 
-    private static boolean passThroughAvailable = false;
+    public static final String clazz = "com.relengxing.rebase.context.PassThroughHolder.class";
+
+    private static boolean passThroughAvailable = true;
 
 
-    public static boolean passThroughLoaded() {
+    static {
         try {
-            PassThroughHolder.getAll();
+            Class.forName(clazz);
             passThroughAvailable = true;
         } catch (Throwable t) {
             passThroughAvailable = false;
         }
+    }
+
+
+    public static boolean passThroughLoaded() {
         return passThroughAvailable;
     }
 

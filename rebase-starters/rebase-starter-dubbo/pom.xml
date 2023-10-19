@@ -33,6 +33,11 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>com.relengxing.base</groupId>
+            <artifactId>rebase-starter-gray</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>2.7.23</version>

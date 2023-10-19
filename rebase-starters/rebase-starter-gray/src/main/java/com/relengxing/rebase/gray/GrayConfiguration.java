@@ -1,6 +1,5 @@
 package com.relengxing.rebase.gray;
 
-import com.relengxing.rebase.gray.config.web.FeignGrayRequestInterceptor;
 import com.relengxing.rebase.gray.configserver.GrayConfig;
 import com.relengxing.rebase.gray.configserver.apollo.ApolloListener;
 import com.relengxing.rebase.gray.configserver.nacos.NacosListener;
@@ -36,12 +35,6 @@ public class GrayConfiguration {
     @ConditionalOnMissingBean
     public GrayConfig apolloGrayConfig() {
         return new ApolloListener();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public FeignGrayRequestInterceptor feignGrayRequestInterceptor() {
-        return new FeignGrayRequestInterceptor();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.relengxing.rebase.gray.config.dubbo;
+package com.relengxing.rebase.dubbo.gray;
 
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.common.extension.Activate;

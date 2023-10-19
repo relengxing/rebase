@@ -1,7 +1,8 @@
-package com.relengxing.rebase.gray.config.dubbo;
+package com.relengxing.rebase.dubbo.gray;
 
 import cn.hutool.extra.spring.SpringUtil;
 import com.relengxing.rebase.constant.BaseConstant;
+import com.relengxing.rebase.gray.GrayLoaded;
 import com.relengxing.rebase.gray.configserver.GrayConfig;
 import com.relengxing.rebase.gray.properties.GrayProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -54,20 +55,22 @@ public class GrayRouter extends AbstractRouter {
      */
     private <T> List<Invoker<T>> filterTag(List<Invoker<T>> invokers, URL url, Invocation invocation) {
         List<Invoker<T>> result = invokers;
-        GrayConfig grayConfig = SpringUtil.getBean(GrayConfig.class);
-        GrayProperties grayProperties = grayConfig.getGrayConfig();
-        // 如果开启了灰度
-        if (Boolean.TRUE.equals(grayProperties.getStatus())) {
-            // 下游服务名
-            String serviceName = invokers.stream().findFirst().map(invoker -> invoker.getUrl().getParameter(BaseConstant.DUBBO_SERVICE_KEY)).orElse("").trim();
-            // 准备路由的版本号
-            // 灰度名单包含下游服务
-            if (grayProperties.getList().containsKey(serviceName)) {
-                // 过滤出符合灰度版本的invokers
-                String version = grayProperties.getVersion(serviceName);
-                invokers = invokers.stream().filter(invoker -> invoker.getUrl().getParameter(BaseConstant.DUBBO_VERSION_KEY).equals(version)).collect(Collectors.toList());
+        if (GrayLoaded.grayLoaded()) {
+            GrayConfig grayConfig = SpringUtil.getBean(GrayConfig.class);
+            GrayProperties grayProperties = grayConfig.getGrayConfig();
+            // 如果开启了灰度
+            if (Boolean.TRUE.equals(grayProperties.getStatus())) {
+                // 下游服务名
+                String serviceName = invokers.stream().findFirst().map(invoker -> invoker.getUrl().getParameter(BaseConstant.DUBBO_SERVICE_KEY)).orElse("").trim();
+                // 准备路由的版本号
+                // 灰度名单包含下游服务
+                if (grayProperties.getList().containsKey(serviceName)) {
+                    // 过滤出符合灰度版本的invokers
+                    String version = grayProperties.getVersion(serviceName);
+                    invokers = invokers.stream().filter(invoker -> invoker.getUrl().getParameter(BaseConstant.DUBBO_VERSION_KEY).equals(version)).collect(Collectors.toList());
+                }
+                result = invokers;
             }
-            result = invokers;
         }
         return result;
     }

@@ -7,6 +7,7 @@ import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.AbstractListener;
 import com.alibaba.nacos.api.exception.NacosException;
+import com.relengxing.rebase.gray.configserver.AbstractGrayConfigListener;
 import com.relengxing.rebase.gray.configserver.GrayConfig;
 import com.relengxing.rebase.gray.properties.GrayProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -16,21 +17,12 @@ import org.springframework.core.env.Environment;
 import javax.annotation.PostConstruct;
 import java.io.ByteArrayInputStream;
 import java.util.Properties;
+import java.util.function.BiConsumer;
 
 
 @Slf4j
-public class NacosListener implements GrayConfig {
+public class NacosListener extends AbstractGrayConfigListener {
     private static final String NACOS_DATA_ID = "base-gray";
-
-    /**
-     * 原始字符串
-     */
-    String configInfoLocal;
-
-    /**
-     * 转换后的对象
-     */
-    GrayProperties grayProperties;
 
     @Autowired
     Environment environment;
@@ -59,24 +51,5 @@ public class NacosListener implements GrayConfig {
         log.info("NacosListener: \n" + configInfoLocal);
     }
 
-    @Override
-    public GrayProperties getGrayConfig() {
-        return grayProperties;
-    }
-
-
-    private void load() {
-        if (configInfoLocal == null) {
-            // 没有配置则认为没有打开蓝绿
-            grayProperties = new GrayProperties();
-            grayProperties.setStatus(false);
-            return;
-        }
-        try {
-            grayProperties = YamlUtil.load(new ByteArrayInputStream(configInfoLocal.getBytes()), GrayProperties.class);
-        } catch (Exception e) {
-            log.error("蓝绿配置文件解析错误，无法开启，请联系运维");
-        }
-    }
 
 }
