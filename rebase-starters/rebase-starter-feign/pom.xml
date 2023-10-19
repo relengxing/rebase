@@ -37,5 +37,14 @@
             <artifactId>rebase-starter-passthrough</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.relengxing.base</groupId>
+            <artifactId>rebase-starter-gray</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
     </dependencies>
 </project>
