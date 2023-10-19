@@ -20,7 +20,14 @@ public class PassThroughHolder {
 
 
     public static void put(String key, String value) {
-        transTh.get().put(key, value);
+        if (value == null) {
+            transTh.get().remove(key);
+            return;
+        }
+        if (key.startsWith("p-") ||key.startsWith("P-")) {
+            transTh.get().put(key, value);
+        }
+
     }
 
     public static String get(String key) {

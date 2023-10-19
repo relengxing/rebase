@@ -22,6 +22,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.relengxing.base</groupId>
+            <artifactId>rebase-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.relengxing.base</groupId>
+            <artifactId>rebase-starter-passthrough</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
 </project>

@@ -24,6 +24,10 @@
 
         <dependency>
             <groupId>com.relengxing.base</groupId>
+            <artifactId>rebase-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.relengxing.base</groupId>
             <artifactId>rebase-starter-passthrough</artifactId>
             <optional>true</optional>
         </dependency>

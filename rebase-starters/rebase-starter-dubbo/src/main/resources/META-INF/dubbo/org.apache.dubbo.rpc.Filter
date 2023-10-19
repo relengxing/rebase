@@ -1,0 +1,2 @@
+passConsumer=com.relengxing.rebase.dubbo.pass.DubboGrayConsumerFilter
+passProvider=com.relengxing.rebase.dubbo.pass.DubboPassProviderFilter
