@@ -1,4 +1,4 @@
-package com.relengxing.base.model;
+package com.relengxing.rebase.model;
 
 /**
  * @author relengxing

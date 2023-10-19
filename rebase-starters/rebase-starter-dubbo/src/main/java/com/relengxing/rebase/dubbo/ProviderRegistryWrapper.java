@@ -1,6 +1,6 @@
 package com.relengxing.rebase.dubbo;
 import cn.hutool.extra.spring.SpringUtil;
-import com.relengxing.base.constant.GrayConstant;
+import com.relengxing.rebase.constant.GrayConstant;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.registry.NotifyListener;

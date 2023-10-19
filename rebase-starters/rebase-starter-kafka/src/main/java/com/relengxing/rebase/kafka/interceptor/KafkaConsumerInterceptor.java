@@ -1,6 +1,6 @@
 package com.relengxing.rebase.kafka.interceptor;
 
-import com.relengxing.base.constant.GrayConstant;
+import com.relengxing.rebase.constant.GrayConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerInterceptor;

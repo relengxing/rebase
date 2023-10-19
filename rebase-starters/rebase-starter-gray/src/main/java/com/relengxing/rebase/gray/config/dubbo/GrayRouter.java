@@ -1,8 +1,7 @@
 package com.relengxing.rebase.gray.config.dubbo;
 
 import cn.hutool.extra.spring.SpringUtil;
-import cn.hutool.json.JSONUtil;
-import com.relengxing.base.constant.GrayConstant;
+import com.relengxing.rebase.constant.GrayConstant;
 import com.relengxing.rebase.gray.configserver.GrayConfig;
 import com.relengxing.rebase.gray.properties.GrayProperties;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.relengxing.base.exception;
+package com.relengxing.rebase.exception;
 
 /**
  * @author relengxing

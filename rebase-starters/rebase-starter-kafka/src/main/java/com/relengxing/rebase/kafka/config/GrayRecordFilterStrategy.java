@@ -1,7 +1,7 @@
 package com.relengxing.rebase.kafka.config;
 
 import cn.hutool.extra.spring.SpringUtil;
-import com.relengxing.base.constant.GrayConstant;
+import com.relengxing.rebase.constant.GrayConstant;
 import com.relengxing.rebase.gray.configserver.GrayConfig;
 import com.relengxing.rebase.kafka.constant.KafkaConstant;
 import lombok.extern.slf4j.Slf4j;

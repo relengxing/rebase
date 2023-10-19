@@ -1,6 +1,6 @@
 package com.relengxing.rebase.kafka.interceptor;
 
-import com.relengxing.base.constant.GrayConstant;
+import com.relengxing.rebase.constant.GrayConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import org.apache.kafka.clients.producer.ProducerInterceptor;
 import org.apache.kafka.clients.producer.ProducerRecord;

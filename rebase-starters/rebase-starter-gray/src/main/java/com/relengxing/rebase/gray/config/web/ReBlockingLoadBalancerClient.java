@@ -16,7 +16,7 @@
 
 package com.relengxing.rebase.gray.config.web;
 
-import com.relengxing.base.constant.GrayConstant;
+import com.relengxing.rebase.constant.GrayConstant;
 import com.relengxing.rebase.gray.context.GrayContext;
 import com.relengxing.rebase.gray.context.TraceContext;
 import lombok.extern.slf4j.Slf4j;

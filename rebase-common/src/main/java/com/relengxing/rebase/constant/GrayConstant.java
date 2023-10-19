@@ -1,4 +1,4 @@
-package com.relengxing.base.constant;
+package com.relengxing.rebase.constant;
 
 /**
  * @author relengxing
